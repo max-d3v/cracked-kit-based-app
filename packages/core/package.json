@@ -1,0 +1,28 @@
+{
+  "name": "@workspace/core",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "check": "ultracite check"
+  },
+  "exports": {
+    "./use-cases/*": "./src/use-cases/*.ts"
+  },
+  "dependencies": {
+    "@orpc/server": "catalog:data-layer",
+    "@workspace/analytics": "workspace:*",
+    "@workspace/auth": "workspace:*",
+    "@workspace/payment": "workspace:*",
+    "@workspace/repository": "workspace:*",
+    "@workspace/types": "workspace:*",
+    "next": "catalog:web"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

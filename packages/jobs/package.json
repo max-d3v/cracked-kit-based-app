@@ -1,0 +1,25 @@
+{
+  "name": "@workspace/jobs",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./trigger/*": "./trigger/*.ts"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint . --max-warnings 0",
+    "jobs": "npx trigger.dev@latest dev",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "4.0.4",
+    "dotenv": "^16.4.7",
+    "zod": "catalog:schemas"
+  },
+  "devDependencies": {
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.9.2",
+    "zod": "catalog:schemas"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "name": "orion-kit",
+  "author": "Martin Linde Persson",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mumma6/orion-kit"
+  },
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:app": "turbo dev --filter=@workspace/app --filter=@workspace/database --filter=@workspace/studio",
+    "dev:web": "turbo dev --filter=@workspace/web --filter=@workspace/docs",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "db:generate": "pnpm --filter @workspace/database db:generate",
+    "db:migrate": "pnpm --filter @workspace/database db:migrate",
+    "db:push": "pnpm --filter @workspace/database db:push",
+    "db:pull": "pnpm --filter @workspace/database db:pull",
+    "db:studio": "pnpm --filter studio dev",
+    "db:check": "pnpm --filter @workspace/database db:check",
+    "db:seed": "pnpm --filter @workspace/database db:seed",
+    "stripe:listen-dev": "stripe listen --forward-to localhost:3002/webhooks/stripe",
+    "typecheck": "turbo typecheck",
+    "prepare": "lefthook install",
+    "check": "ultracite check --write",
+    "fix": "ultracite fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.9",
+    "@react-email/ui": "6.5.0",
+    "@types/node": "^24.12.2",
+    "@vitest/ui": "^3.2.4",
+    "@workspace/typescript-config": "workspace:*",
+    "husky": "^9.1.7",
+    "lefthook": "^2.1.6",
+    "prettier": "^3.8.3",
+    "turbo": "^2.9.6",
+    "typescript": "5.7.3",
+    "ultracite": "7.4.0",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "bun@1.3.10",
+  "engines": {
+    "node": ">=20"
+  },
+  "catalogs": {
+    "schemas": {
+      "drizzle-zod": "^0.8.3",
+      "drizzle-kit": "^0.31.10",
+      "drizzle-orm": "^0.45.2",
+      "zod": "^4.3.6"
+    },
+    "web": {
+      "next": "^16.1.0",
+      "react": "^19.2.4",
+      "react-dom": "^19.2.4"
+    },
+    "data-layer": {
+      "@orpc/otel": "^1.13.14",
+      "@orpc/client": "^1.14.0",
+      "@orpc/server": "^1.13.13",
+      "@orpc/tanstack-query": "^1.13.13",
+      "@tanstack/react-query": "^5.96.2"
+    },
+    "otel": {
+      "@opentelemetry/api": "^1.9.0",
+      "@opentelemetry/sdk-node": "^0.57.0",
+      "@opentelemetry/sdk-trace-node": "^1.30.0",
+      "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
+      "@opentelemetry/resources": "^1.30.0",
+      "@opentelemetry/semantic-conventions": "^1.30.0"
+    }
+  },
+  "workspaces": [
+    "apps/*",
+    "apps/marketing-websites/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.13.11",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-email": "6.5.0",
+    "root": "tanstack/react-query"
+  }
+}

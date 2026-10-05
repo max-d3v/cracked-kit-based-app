@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/studio",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "cd ../../packages/database && bun db:studio --port 3003",
+    "start": "cd ../../packages/database && bun db:studio --port 3003",
+    "clean": "git clean -xdf .cache .turbo dist node_modules"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.9.2"
+  }
+}

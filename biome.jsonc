@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": [
+    "ultracite/core",
+    "ultracite/react",
+    "ultracite/next",
+    "ultracite/biome/core",
+    "ultracite/biome/react",
+    "ultracite/biome/next"
+  ],
+  "javascript": {
+    "globals": ["Liveblocks"]
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noBarrelFile": "off"
+      },
+      "complexity": {
+        "noVoid": "off"
+      },
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "options": {
+            "style": "type"
+          }
+        }
+      }
+    }
+  },
+  "files": {
+    "includes": [
+      "**/*",
+      "!.agents",
+      "!packages/ui",
+      "!packages/design-system/components/ui",
+      "!packages/design-system/lib",
+      "!packages/design-system/hooks",
+      "!packages/collaboration/config.ts",
+      "!docs",
+      "!apps/docs/**/*.json",
+      "!apps/email/.react-email",
+      "!packages/cms/basehub-types.d.ts",
+      "!apps/(unused)/**/*"
+    ]
+  }
+}

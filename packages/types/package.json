@@ -1,0 +1,27 @@
+{
+  "name": "@workspace/types",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./payments/*": "./src/payments/*.ts",
+    "./repository/*": "./src/repository/*.ts",
+    "./errors/*": "./src/errors/*.ts",
+    "./use-cases/*": "./src/use-cases/*.ts",
+    "./auth": "./src/auth.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@workspace/database": "workspace:*",
+    "@clerk/nextjs": "^7.0.1",
+    "stripe": "^22.0.1",
+    "zod": "catalog:schemas"
+  },
+  "devDependencies": {
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.9.2"
+  }
+}

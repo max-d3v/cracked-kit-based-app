@@ -1,0 +1,19 @@
+{
+  "name": "@workspace/docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --turbopack --port 3004",
+    "start": "astro dev",
+    "build": "astro build",
+    "build:retry": "astro build || (sleep 5 && astro build)",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.36.0",
+    "astro": "^5.6.1",
+    "sharp": "^0.34.2",
+    "starlight-theme-nova": "^0.9.5"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@workspace/rpc",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./router": "./src/router.ts",
+    "./orpc/*": "./src/orpc/*.ts",
+    "./errors": "./src/errors.ts",
+    "./middleware/*": "./src/middleware/*.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^7.0.8",
+    "@opentelemetry/api": "catalog:otel",
+    "@orpc/client": "catalog:data-layer",
+    "@orpc/server": "catalog:data-layer",
+    "@workspace/analytics": "workspace:*",
+    "@workspace/auth": "workspace:*",
+    "@workspace/core": "workspace:*",
+    "@workspace/observability": "workspace:*",
+    "@workspace/types": "workspace:*",
+    "next": "catalog:web",
+    "zod": "catalog:schemas"
+  }
+}

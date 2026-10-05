@@ -1,0 +1,153 @@
+---
+title: Cracked Template
+description: An opinionated B2B SaaS monorepo template — auth, billing, and the production stack wired together with end-to-end type safety.
+template: splash
+hero:
+  tagline: Ship B2B SaaS fast. An opinionated monorepo with oRPC, Clerk, Drizzle ORM, and TanStack Query — end-to-end type safety from database to UI.
+  image:
+    file: ../../assets/undraw_outer-space_qey5.svg
+  actions:
+    - text: Get Started
+      link: /introduction/
+      icon: right-arrow
+      variant: primary
+    - text: Architecture
+      link: /architecture/overview/
+      icon: open-book
+    - text: Use this template
+      link: https://github.com/Mumma6/orion-kit
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Running Apps
+
+{import.meta.env.PROD ? (
+
+<div>
+  <p>
+    <strong>Production:</strong>
+  </p>
+  <ul>
+    <li>
+      <strong>Landing</strong> →{" "}
+      <a href="https://orion-kit-web.vercel.app">
+        https://orion-kit-web.vercel.app
+      </a>
+    </li>
+    <li>
+      <strong>Dashboard</strong> →{" "}
+      <a href="https://orion-kit-app.vercel.app">
+        https://orion-kit-app.vercel.app
+      </a>
+    </li>
+    <li>
+      <strong>API</strong> →{" "}
+      <a href="https://orion-kit-api.vercel.app/health">
+        https://orion-kit-api.vercel.app/health
+      </a>
+    </li>
+    <li>
+      <strong>Docs</strong> →{" "}
+      <a href="https://orion-kit-docs.vercel.app">
+        https://orion-kit-docs.vercel.app
+      </a>
+    </li>
+  </ul>
+</div>
+) : (
+<div>
+  <p>
+    <strong>Development:</strong>
+  </p>
+  <ul>
+    <li>
+      <strong>Landing</strong> →{" "}
+      <a href="http://localhost:3000">http://localhost:3000</a>
+    </li>
+    <li>
+      <strong>Dashboard</strong> →{" "}
+      <a href="http://localhost:3001">http://localhost:3001</a>
+    </li>
+    <li>
+      <strong>API</strong> →{" "}
+      <a href="http://localhost:3002/health">http://localhost:3002/health</a>
+    </li>
+    <li>
+      <strong>Studio</strong> →{" "}
+      <a href="https://local.drizzle.studio?port=3003">
+        https://local.drizzle.studio?port=3003
+      </a>
+    </li>
+    <li>
+      <strong>Docs</strong> →{" "}
+      <a href="http://localhost:3004">http://localhost:3004</a>
+    </li>
+  </ul>
+</div>
+)}
+
+---
+
+## Quick Links
+
+<CardGrid>
+  <Card title="Introduction" icon="open-book">
+    What Cracked Template is and what you get. [Read more](/introduction/)
+  </Card>
+  <Card title="Architecture" icon="puzzle">
+    Monorepo structure and clean architecture layers. [Learn more](/architecture/overview/)
+  </Card>
+  <Card title="Core Packages" icon="setting">
+    RPC, Repository, Use Cases, Auth, and Data Layer. [View packages](/packages/)
+  </Card>
+  <Card title="Applications" icon="rocket">
+    How each app is built, fetches data, and is structured. [View apps](/apps/)
+  </Card>
+</CardGrid>
+
+## What's Included
+
+<CardGrid stagger>
+  <Card title="Clean Architecture" icon="puzzle">
+    Layered package design: RPC (API) -> Core (Use Cases + Authorization) -> Repository (Data Access) -> Database. Each layer has a single responsibility.
+  </Card>
+  <Card title="oRPC + TanStack Query" icon="rocket">
+    End-to-end type-safe RPC with automatic cache management. Server-side prefetching with client hydration. No manual API clients or query keys.
+  </Card>
+  <Card title="Clerk Authentication" icon="lock">
+    Managed authentication abstracted into a workspace package. Server/client utilities, middleware proxy, and themed sign-in/sign-up components.
+  </Card>
+  <Card title="Drizzle ORM + Neon" icon="setting">
+    Type-safe database with serverless PostgreSQL. Automatic Zod schema generation via drizzle-zod. Migrations, seeding, and Studio GUI.
+  </Card>
+  <Card title="Stripe Payments" icon="star">
+    Subscriptions, checkout sessions, billing portal, and webhook handling. Pricing configuration with plan management utilities.
+  </Card>
+  <Card title="Turborepo Monorepo" icon="seti:config">
+    Optimized builds with task pipelines, workspace dependencies, and shared TypeScript configurations. Bun package manager with catalog dependencies.
+  </Card>
+  <Card title="PostHog Analytics" icon="laptop">
+    Client and server-side event tracking. Vercel Analytics for performance monitoring. Optional Google Analytics integration.
+  </Card>
+  <Card title="Sentry Observability" icon="magnifier">
+    Error tracking, session replay, and OpenTelemetry tracing for oRPC procedures and Drizzle queries. No-op when envs are missing.
+  </Card>
+  <Card title="Typed Analytics Metrics" icon="rocket">
+    First-class North Star, Activation, and Retention definitions in code. Typed `EVENTS` registry constrains every `capture()` call.
+  </Card>
+  <Card title="shadcn/ui + Tailwind v4" icon="star">
+    27 Radix UI components with OKLch color system, dark mode, and sidebar theming. Tailwind CSS v4 with PostCSS.
+  </Card>
+  <Card title="Resend Email" icon="document">
+    React Email templates with Tailwind styling. Transactional email delivery with type-safe send functions.
+  </Card>
+  <Card title="Trigger.dev Jobs" icon="sun">
+    Background task execution with retry configuration. Scheduled tasks and one-time jobs with the Trigger.dev SDK.
+  </Card>
+  <Card title="Vitest + Playwright" icon="magnifier">
+    Unit testing with Vitest and comprehensive E2E testing with Playwright. Coverage reports and UI mode.
+  </Card>
+</CardGrid>

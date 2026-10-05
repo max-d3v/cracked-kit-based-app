@@ -1,0 +1,34 @@
+{
+  "name": "@workspace/observability",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./server": "./src/server.ts",
+    "./client": "./src/client.ts",
+    "./api/*": "./src/api/*.ts",
+    "./app/*": "./src/app/*.ts",
+    "./database": "./src/database.ts",
+    "./keys": "./src/keys.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@kubiks/otel-drizzle": "^2.1.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.215.0",
+    "@orpc/otel": "catalog:data-layer",
+    "@sentry/nextjs": "^9.0.0",
+    "@t3-oss/env-nextjs": "^0.13.11",
+    "@workspace/database": "workspace:*",
+    "next": "catalog:web",
+    "react": "catalog:web",
+    "zod": "catalog:schemas"
+  },
+  "devDependencies": {
+    "@workspace/typescript-config": "workspace:*",
+    "@types/node": "^20.19.9",
+    "typescript": "^5.9.2"
+  }
+}

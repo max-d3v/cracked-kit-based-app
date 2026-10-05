@@ -1,0 +1,7 @@
+{
+  "extends": "@workspace/typescript-config/base.json",
+  "noEmit": true,
+  "compilerOptions": {
+    "strictNullChecks": true
+  }
+}

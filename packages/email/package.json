@@ -1,0 +1,19 @@
+{
+  "name": "transactional",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "email build",
+    "export": "email export"
+  },
+  "dependencies": {
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "react-email": "6.1.4"
+  },
+  "devDependencies": {
+    "@react-email/ui": "6.1.4",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
+  }
+}

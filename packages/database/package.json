@@ -1,0 +1,40 @@
+{
+  "name": "@workspace/database",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./client": "./src/client.ts",
+    "./schema": "./src/schema.ts",
+    "./drizzle-zod": "./src/drizzle-zod.ts",
+    "./keys": "./src/keys.ts"
+  },
+  "scripts": {
+    "dev": "docker-compose up -d",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push --verbose",
+    "db:pull": "drizzle-kit pull",
+    "db:studio": "drizzle-kit studio",
+    "db:check": "drizzle-kit check",
+    "db:seed": "tsx src/seed.ts",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "drizzle-orm": "catalog:schemas",
+    "drizzle-zod": "catalog:schemas",
+    "postgres": "^3.4.9",
+    "zod": "catalog:schemas"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.0",
+    "@workspace/typescript-config": "workspace:*",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "catalog:schemas",
+    "eslint": "^9.23.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.2"
+  }
+}
