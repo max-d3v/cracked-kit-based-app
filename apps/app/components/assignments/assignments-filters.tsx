@@ -5,37 +5,45 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@workspace/ui/components/dropdown-menu";
 import { Input } from "@workspace/ui/components/input";
 import { Filter, Search, X } from "lucide-react";
-import { type StatusFilter, statusConfig } from "./task-status-config";
+import {
+  STATUS_ORDER,
+  type StatusFilter,
+  StatusIcon,
+  statusConfig,
+} from "./status-config";
 
-interface TasksFiltersProps {
+interface AssignmentsFiltersProps {
   onSearchChange: (query: string) => void;
   onStatusFilterChange: (filter: StatusFilter) => void;
   searchQuery: string;
   statusFilter: StatusFilter;
 }
 
-export function TasksFilters({
+export function AssignmentsFilters({
   searchQuery,
   onSearchChange,
   statusFilter,
   onStatusFilterChange,
-}: TasksFiltersProps) {
+}: AssignmentsFiltersProps) {
   return (
     <div className="flex gap-4">
       <div className="relative flex-1">
         <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input
+          aria-label="Buscar trabalhos"
           className="pr-9 pl-9"
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Search tasks..."
+          placeholder="Buscar por trabalho, matéria ou turma…"
           value={searchQuery}
         />
         {searchQuery && (
           <button
+            aria-label="Limpar busca"
             className="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             onClick={() => onSearchChange("")}
             type="button"
@@ -48,25 +56,25 @@ export function TasksFilters({
         <DropdownMenuTrigger asChild>
           <Button className="gap-2" variant="outline">
             <Filter className="h-4 w-4" />
-            {statusFilter === "all" ? "All" : statusConfig[statusFilter].label}
+            {statusFilter === "all"
+              ? "Todos"
+              : statusConfig[statusFilter].label}
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onClick={() => onStatusFilterChange("all")}>
-            All Tasks
+            Todos os trabalhos
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => onStatusFilterChange("todo")}>
-            To Do
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => onStatusFilterChange("in-progress")}>
-            In Progress
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => onStatusFilterChange("completed")}>
-            Completed
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => onStatusFilterChange("cancelled")}>
-            Cancelled
-          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          {STATUS_ORDER.map((status) => (
+            <DropdownMenuItem
+              key={status}
+              onClick={() => onStatusFilterChange(status)}
+            >
+              <StatusIcon className="mr-2 h-4 w-4" status={status} />
+              {statusConfig[status].label}
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

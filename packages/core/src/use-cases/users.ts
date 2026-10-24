@@ -1,5 +1,5 @@
+import { deleteAllByUserId as deleteAllAssignmentsByUserId } from "@workspace/repository/entities/assignments";
 import { deleteAllByUserId as deleteAllSubscriptionsByUserId } from "@workspace/repository/entities/subscription";
-import { deleteAllByUserId as deleteAllTasksByUserId } from "@workspace/repository/entities/tasks";
 import {
   deleteOne as deleteUser,
   get,
@@ -49,7 +49,7 @@ export const deleteAccount = async (
 ): Promise<DeleteAccountResponse> => {
   const { userId } = params;
 
-  await deleteAllTasksByUserId({ userId });
+  await deleteAllAssignmentsByUserId({ userId });
   await deleteAllSubscriptionsByUserId({ userId });
   await deleteUser({ id: userId });
 

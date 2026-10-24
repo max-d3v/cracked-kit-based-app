@@ -25,10 +25,10 @@ export function ErrorFallback({
         <CardHeader>
           <div className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-destructive" />
-            <CardTitle>Something went wrong</CardTitle>
+            <CardTitle>Algo deu errado</CardTitle>
           </div>
           <CardDescription>
-            An unexpected error occurred. Please try again.
+            Ocorreu um erro inesperado. Tente de novo.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -39,14 +39,14 @@ export function ErrorFallback({
           </div>
           <div className="flex gap-2">
             <Button className="flex-1" onClick={resetErrorBoundary}>
-              Try Again
+              Tentar de novo
             </Button>
             <Button
               className="flex-1"
               onClick={() => window.location.reload()}
               variant="outline"
             >
-              Reload Page
+              Recarregar página
             </Button>
           </div>
         </CardContent>

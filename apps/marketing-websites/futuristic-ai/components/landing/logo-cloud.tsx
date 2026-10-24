@@ -1,16 +1,16 @@
 import { Marquee } from "@/components/ui/marquee";
 
 const logos = [
-  "LINEAR",
-  "SPLUNK",
-  "DROPBOX",
-  "NOTION",
-  "RAMP",
-  "RETOOL",
-  "VERCEL",
-  "ANTHROPIC",
-  "CURSOR",
-  "PERPLEXITY",
+  "MATEMÁTICA",
+  "FÍSICA",
+  "QUÍMICA",
+  "BIOLOGIA",
+  "HISTÓRIA",
+  "GEOGRAFIA",
+  "REDAÇÃO",
+  "PROGRAMAÇÃO",
+  "ECONOMIA",
+  "FILOSOFIA",
 ];
 
 export function LogoCloud() {
@@ -18,7 +18,7 @@ export function LogoCloud() {
     <section className="relative border-white/[0.04] border-y bg-[#0a0818]/50 py-12">
       <div className="mx-auto max-w-7xl px-6">
         <p className="mb-8 text-center font-medium text-muted-foreground text-xs uppercase tracking-[0.2em]">
-          Trusted by forward-thinking teams shipping at scale
+          Resolve trabalhos de todas as matérias
         </p>
         <Marquee>
           {logos.map((logo) => (

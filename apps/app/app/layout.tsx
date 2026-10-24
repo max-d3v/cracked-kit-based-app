@@ -5,8 +5,9 @@ import { Toaster } from "@workspace/ui/components/sonner";
 import { Providers } from "@/app/providers";
 
 export const metadata = {
-  title: "Cracked Kit",
-  description: "Dashboard for Cracked Kit",
+  title: "Catolifeito",
+  description:
+    "Seus trabalhos do Teams escaneados, resolvidos e enviados em seu nome.",
 };
 
 export default async function RootLayout({
@@ -15,7 +16,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <Providers>{children}</Providers>
         <Toaster position="top-right" richColors />

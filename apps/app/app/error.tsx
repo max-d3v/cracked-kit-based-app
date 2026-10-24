@@ -26,33 +26,33 @@ export default function ErrorBoundary({ error, reset }: ErrorBoundaryProps) {
               aria-hidden="true"
               className="h-5 w-5 text-destructive"
             />
-            <CardTitle>Something went wrong</CardTitle>
+            <CardTitle>Algo deu errado</CardTitle>
           </div>
           <CardDescription>
-            An unexpected error occurred while loading this page. You can try
-            again or return to the dashboard.
+            Ocorreu um erro inesperado ao carregar esta página. Você pode tentar
+            de novo ou voltar para o início.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="rounded-lg bg-muted p-4">
             <p className="break-words font-mono text-muted-foreground text-sm">
-              {error.message || "Unknown error"}
+              {error.message || "Erro desconhecido"}
             </p>
             {error.digest && (
               <p className="mt-2 font-mono text-muted-foreground text-xs">
-                Digest: {error.digest}
+                Código: {error.digest}
               </p>
             )}
           </div>
           <div className="flex flex-col gap-2 sm:flex-row">
             <Button className="flex-1" onClick={reset} type="button">
               <RefreshCcw aria-hidden="true" />
-              Try again
+              Tentar de novo
             </Button>
             <Button asChild className="flex-1" variant="outline">
               <Link href="/dashboard">
                 <Home aria-hidden="true" />
-                Back to dashboard
+                Voltar para o início
               </Link>
             </Button>
           </div>

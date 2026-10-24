@@ -12,24 +12,25 @@ import { Testimonial } from "@/components/landing/testimonial";
 import { UseCases } from "@/components/landing/use-cases";
 
 export const metadata: Metadata = {
-  title: "Nova — Your AI workforce, ready for production",
+  title: "Catolifeito — Seus trabalhos do Teams, já feitos",
   description:
-    "Design, deploy, and scale autonomous AI agents that reason, act, and collaborate. Built for teams shipping intelligence at the edge of what's possible.",
+    "Conecte seu Microsoft Teams e o Catolifeito escaneia suas tarefas, resolve cada uma e envia em seu nome — antes do prazo.",
   keywords: [
-    "AI agents",
-    "agentic AI",
-    "AI orchestration",
-    "Next.js template",
-    "AI landing page",
-    "futuristic UI",
-    "shadcn template",
-    "production AI",
+    "Catolifeito",
+    "Microsoft Teams",
+    "tarefas do Teams",
+    "trabalhos escolares",
+    "lição de casa",
+    "IA para estudantes",
+    "entrega automática",
   ],
   openGraph: {
     type: "website",
-    title: "Nova — Your AI workforce, ready for production",
+    locale: "pt_BR",
+    siteName: "Catolifeito",
+    title: "Catolifeito — Seus trabalhos do Teams, já feitos",
     description:
-      "Design, deploy, and scale autonomous AI agents. Built for teams shipping intelligence at the edge of what's possible.",
+      "Escaneia suas tarefas do Teams, resolve e envia em seu nome. Você só acompanha.",
   },
 };
 

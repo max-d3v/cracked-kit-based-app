@@ -14,11 +14,13 @@ import * as authSchema from "./auth-schema";
 
 export * from "./auth-schema";
 
-export const tasktatusEnum = pgEnum("task_status", [
-  "todo",
-  "in-progress",
-  "completed",
-  "cancelled",
+export const assignmentStatusEnum = pgEnum("assignment_status", [
+  "found",
+  "solving",
+  "review",
+  "submitted",
+  "graded",
+  "failed",
 ]);
 
 export const organizationRole = pgEnum("organization_roles", [
@@ -44,18 +46,22 @@ export const subscription = pgTable("subscription", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
-export const task = pgTable("task", {
+export const assignment = pgTable("assignment", {
   id: uuid().default(sql`gen_random_uuid()`).primaryKey(),
   userId: varchar("user_id", { length: 255 }).notNull(),
 
   title: varchar({ length: 255 }).notNull(),
-  description: text(),
-  status: tasktatusEnum().default("todo").notNull(),
-
-  priority: integer("priority").default(0),
+  subject: varchar({ length: 100 }).notNull(),
+  classroom: varchar({ length: 255 }).notNull(),
+  teacher: varchar({ length: 255 }),
+  instructions: text(),
+  solution: text(),
+  status: assignmentStatusEnum().default("found").notNull(),
+  progress: integer().default(0).notNull(),
+  grade: varchar({ length: 20 }),
 
   dueDate: timestamp("due_date"),
-  completedAt: timestamp("completed_at"),
+  submittedAt: timestamp("submitted_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
@@ -67,17 +73,17 @@ export const subscriptionRelations = relations(subscription, ({ one }) => ({
   }),
 }));
 
-export const taskRelations = relations(task, ({ one }) => ({
+export const assignmentRelations = relations(assignment, ({ one }) => ({
   user: one(authSchema.user, {
-    fields: [task.userId],
+    fields: [assignment.userId],
     references: [authSchema.user.id],
   }),
 }));
 
 export const schema = {
   subscription,
-  task,
+  assignment,
   subscriptionRelations,
-  taskRelations,
+  assignmentRelations,
   ...authSchema,
 };

@@ -1,6 +1,6 @@
 import { EVENTS } from "./events";
 export const ACTIVATION_METRICS = {
-  task_created: {
-    events: [EVENTS.user_created, EVENTS.task_created],
+  assignments_synced: {
+    events: [EVENTS.user_created, EVENTS.assignments_synced],
   },
 };

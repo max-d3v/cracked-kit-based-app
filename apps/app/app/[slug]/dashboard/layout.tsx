@@ -19,12 +19,10 @@ export default async function DashboardLayout({
 
   return (
     <SidebarProvider>
-      <Suspense
-        fallback={<div>Loading sidebar...(This should not be visible)</div>}
-      >
+      <Suspense fallback={<div>Carregando…</div>}>
         <AppSidebar />
       </Suspense>
-      <SidebarInset>
+      <SidebarInset className="min-w-0">
         <DashboardHeader />
         <div className="flex flex-1 flex-col">{children}</div>
       </SidebarInset>

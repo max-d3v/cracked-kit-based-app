@@ -14,25 +14,24 @@ export function Testimonial() {
           strokeWidth={1.25}
         />
         <blockquote className="mt-8 font-display font-medium text-3xl text-gradient leading-[1.2] tracking-tight md:text-5xl">
-          "We replaced a 12-person ops team with three Nova agents. They never
-          sleep, never miss a ticket, and our customers love them more."
+          "Conectei meu Teams numa sexta e nunca mais abri a aba de tarefas.
+          Tudo entregue, tudo no prazo, e eu finalmente durmo antes da
+          meia-noite."
         </blockquote>
 
         <div className="mt-10 flex items-center justify-center gap-4">
           <span className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 font-display font-semibold text-base text-white">
-            MJ
+            RM
           </span>
           <div className="text-left">
-            <div className="font-medium text-foreground text-sm">
-              Martin Jerkovic
-            </div>
+            <div className="font-medium text-foreground text-sm">Rafael M.</div>
             <div className="text-muted-foreground text-xs">
-              Head of Product, Linear
+              Estudante de Engenharia
             </div>
           </div>
           <div className="ml-4 h-8 w-px bg-white/[0.08]" />
           <div className="font-display font-medium text-muted-foreground text-sm tracking-widest">
-            LINEAR
+            3º SEMESTRE
           </div>
         </div>
       </div>

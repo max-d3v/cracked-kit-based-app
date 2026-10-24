@@ -1,50 +1,43 @@
-import { Github, Linkedin, Sparkles, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
 const columns = [
   {
-    title: "Product",
+    title: "Produto",
     links: [
-      { label: "Platform", href: "#features" },
-      { label: "Solutions", href: "#solutions" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Changelog", href: "#changelog" },
-      { label: "Roadmap", href: "#roadmap" },
+      { label: "Como funciona", href: "#capabilities" },
+      { label: "Matérias", href: "#solutions" },
+      { label: "Preços", href: "#pricing" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Novidades", href: "#novidades" },
     ],
   },
   {
-    title: "Resources",
+    title: "Recursos",
     links: [
-      { label: "Documentation", href: "#docs" },
-      { label: "API reference", href: "#api" },
-      { label: "Guides", href: "#guides" },
-      { label: "Templates", href: "#templates" },
+      { label: "Central de ajuda", href: "#ajuda" },
+      { label: "Guias", href: "#guias" },
       { label: "Blog", href: "#blog" },
+      { label: "Status", href: "#status" },
     ],
   },
   {
-    title: "Company",
+    title: "Empresa",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Customers", href: "#customers" },
-      { label: "Careers", href: "#careers" },
-      { label: "Press kit", href: "#press" },
-      { label: "Contact", href: "#contact" },
+      { label: "Sobre", href: "#sobre" },
+      { label: "Trabalhe conosco", href: "#carreiras" },
+      { label: "Contato", href: "#contact" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#privacy" },
-      { label: "Terms", href: "#terms" },
-      { label: "Security", href: "#security" },
-      { label: "DPA", href: "#dpa" },
-      { label: "Subprocessors", href: "#subprocessors" },
+      { label: "Privacidade", href: "#privacidade" },
+      { label: "Termos de uso", href: "#termos" },
+      { label: "Cookies", href: "#cookies" },
     ],
   },
 ];
-
-const compliance = ["SOC 2", "GDPR", "HIPAA", "CCPA", "ISO 27001"];
 
 export function Footer() {
   return (
@@ -56,17 +49,11 @@ export function Footer() {
               className="inline-flex items-center gap-2.5 font-display font-semibold text-base"
               href="/"
             >
-              <span
-                aria-hidden="true"
-                className="grid size-8 place-items-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 shadow-[0_0_24px_rgba(59,130,246,0.5)]"
-              >
-                <Sparkles className="size-4 text-white" strokeWidth={2.5} />
-              </span>
-              NOVA
+              CATOLIFEITO
             </Link>
             <p className="mt-4 max-w-xs text-muted-foreground text-sm leading-relaxed">
-              The agentic AI platform for teams shipping intelligence at
-              production scale.
+              Seus trabalhos do Teams escaneados, resolvidos e enviados em seu
+              nome.
             </p>
 
             <div className="mt-6 flex items-center gap-2">
@@ -114,18 +101,13 @@ export function Footer() {
       <div className="border-white/[0.04] border-t">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-muted-foreground text-xs md:flex-row">
           <p>
-            © {new Date().getFullYear()} Nova Labs, Inc. All rights reserved.
+            © {new Date().getFullYear()} Catolifeito. Todos os direitos
+            reservados.
           </p>
-          <div className="flex items-center gap-3">
-            {compliance.map((badge) => (
-              <span
-                className="rounded-md border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 font-medium text-[10px] tracking-wider"
-                key={badge}
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
+          <p>
+            Microsoft Teams é uma marca da Microsoft. O Catolifeito não é
+            afiliado à Microsoft.
+          </p>
         </div>
       </div>
     </footer>

@@ -23,18 +23,18 @@ export function BillingError({ error, onRetry }: BillingErrorProps) {
           <div className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-destructive" />
             <CardTitle className="text-base">
-              Failed to load billing information
+              Não foi possível carregar sua assinatura
             </CardTitle>
           </div>
           <CardDescription>
             {error instanceof Error
               ? error.message
-              : "An error occurred while fetching your subscription. Please try again."}
+              : "Ocorreu um erro ao buscar sua assinatura. Tente de novo."}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Button onClick={onRetry} size="sm" variant="outline">
-            Try Again
+            Tentar de novo
           </Button>
         </CardContent>
       </Card>

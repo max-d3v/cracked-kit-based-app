@@ -10,7 +10,7 @@ export default async function AnalyticsPage() {
   const queryClient = getQueryClient();
 
   void queryClient.prefetchQuery(
-    orpc.tasks.getUserTasksWithCount.queryOptions({
+    orpc.assignments.list.queryOptions({
       refetchInterval: ANALYTICS_REFETCH_INTERVAL,
     })
   );

@@ -37,7 +37,7 @@ export function BillingContent() {
       const result = await checkout.mutateAsync({ priceId });
       window.location.href = result.url;
     } catch (error) {
-      showErrorToast(error as Error, "Failed to start checkout");
+      showErrorToast(error as Error, "Não foi possível iniciar o pagamento");
     }
   };
 
@@ -48,24 +48,28 @@ export function BillingContent() {
     } catch (error) {
       const err = error as Error & { code?: string };
       const errorCode = err?.code;
-      const errorMessage = err?.message || "Failed to open billing portal";
+      const errorMessage =
+        err?.message || "Não foi possível abrir o portal de cobrança";
 
       if (errorCode === "NO_PREFERENCES") {
-        showErrorToast(new Error(errorMessage), "Account Setup Required");
+        showErrorToast(
+          new Error(errorMessage),
+          "Configuração da conta necessária"
+        );
       } else if (errorCode === "NO_STRIPE_CUSTOMER") {
         showErrorToast(
-          new Error("Please subscribe to a plan first to manage your billing."),
-          "No Active Subscription"
+          new Error("Assine um plano primeiro para gerenciar sua cobrança."),
+          "Nenhuma assinatura ativa"
         );
       } else if (errorCode === "PORTAL_NOT_ACTIVATED") {
         showErrorToast(
           new Error(
-            "Billing portal is not available yet. Please contact support."
+            "O portal de cobrança ainda não está disponível. Fale com o suporte."
           ),
-          "Portal Not Available"
+          "Portal indisponível"
         );
       } else {
-        showErrorToast(err, "Failed to open billing portal");
+        showErrorToast(err, "Não foi possível abrir o portal de cobrança");
       }
     }
   };
@@ -84,9 +88,9 @@ export function BillingContent() {
           <CreditCard className="h-8 w-8 text-primary-foreground" />
         </div>
         <div>
-          <h1 className="font-bold text-3xl">Billing</h1>
+          <h1 className="font-bold text-3xl">Assinatura</h1>
           <p className="text-muted-foreground">
-            Manage your subscription and billing settings
+            Gerencie sua assinatura e suas configurações de cobrança
           </p>
         </div>
       </div>
@@ -99,7 +103,7 @@ export function BillingContent() {
       />
 
       <div>
-        <h2 className="mb-4 font-bold text-2xl">Available Plans</h2>
+        <h2 className="mb-4 font-bold text-2xl">Planos disponíveis</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {PLANS.map((plan) => (
             <PricingCard

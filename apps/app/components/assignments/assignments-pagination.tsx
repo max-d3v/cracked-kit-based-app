@@ -9,14 +9,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@workspace/ui/components/pagination";
-import { useTasksContext } from "./context";
+import { useAssignmentsContext } from "./context";
 
-export function TasksPagination() {
+export function AssignmentsPagination() {
   const {
     currentPage,
     totalPages,
     setCurrentPage: onPageChange,
-  } = useTasksContext();
+  } = useAssignmentsContext();
 
   if (totalPages <= 1) {
     return null;

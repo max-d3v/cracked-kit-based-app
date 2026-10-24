@@ -24,9 +24,9 @@ export function SettingsProfile({ user }: SettingsProfileProps) {
           <div>
             <CardTitle className="flex items-center gap-2">
               <UserIcon className="h-5 w-5" />
-              Profile
+              Perfil
             </CardTitle>
-            <CardDescription>Your account information</CardDescription>
+            <CardDescription>Informações da sua conta</CardDescription>
           </div>
           <EditProfileButton user={user} />
         </div>
@@ -35,7 +35,7 @@ export function SettingsProfile({ user }: SettingsProfileProps) {
         <div className="flex items-center gap-4">
           {user.image && (
             <Image
-              alt={user.name || "User"}
+              alt={user.name || "Usuário"}
               className="h-16 w-16 rounded-full border-2 border-primary/20"
               height={64}
               src={user.image}
@@ -43,34 +43,36 @@ export function SettingsProfile({ user }: SettingsProfileProps) {
             />
           )}
           <div>
-            <div className="font-semibold text-lg">{user.name || "User"}</div>
+            <div className="font-semibold text-lg">
+              {user.name || "Usuário"}
+            </div>
             <div className="text-muted-foreground text-sm">{user.email}</div>
           </div>
         </div>
         <Separator />
         <div className="grid gap-3">
           <div className="flex justify-between">
-            <span className="text-muted-foreground text-sm">User ID</span>
+            <span className="text-muted-foreground text-sm">ID do usuário</span>
             <span className="text-sm">{user.id}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground text-sm">Member since</span>
+            <span className="text-muted-foreground text-sm">Membro desde</span>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground text-sm">Status</span>
             <Badge className="bg-green-500" variant="default">
-              Active
+              Ativo
             </Badge>
           </div>
           <div className="flex justify-between">
             <span className="text-muted-foreground text-sm">
-              Email Verified
+              E-mail verificado
             </span>
             <Badge
               className={user.emailVerified ? "bg-green-500" : "bg-red-500"}
               variant={user.emailVerified ? "default" : "destructive"}
             >
-              {user.emailVerified ? "Yes" : "No"}
+              {user.emailVerified ? "Sim" : "Não"}
             </Badge>
           </div>
         </div>

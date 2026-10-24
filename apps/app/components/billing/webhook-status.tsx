@@ -14,15 +14,15 @@ export const WebhookStatus = ({ onDismiss }: WebhookStatusProps) => {
         <AlertTriangle className="h-5 w-5 flex-shrink-0 text-yellow-600" />
         <div className="flex-1">
           <p className="mb-2 text-xs text-yellow-600/90">
-            In development mode, you need to run the Stripe webhook listener for
-            subscriptions to update:
+            Em modo de desenvolvimento, você precisa rodar o listener de
+            webhooks do Stripe para que as assinaturas sejam atualizadas:
           </p>
           <pre className="rounded bg-yellow-100 p-2 text-xs text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">
             stripe listen --forward-to localhost:3002/webhooks/stripe
           </pre>
         </div>
         <button
-          aria-label="Dismiss"
+          aria-label="Dispensar"
           className="self-start text-yellow-600 transition-colors hover:text-slate-500"
           onClick={onDismiss}
           type="button"

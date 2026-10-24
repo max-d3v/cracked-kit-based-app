@@ -11,49 +11,49 @@ import { Badge } from "@/components/ui/badge";
 const features = [
   {
     icon: Boxes,
-    title: "Goal-oriented agents",
+    title: "Entende o enunciado",
     description:
-      "Define the outcome — agents autonomously determine the path. Branching logic, retries, and self-evaluation built in.",
+      "Lê textos, PDFs e anexos da tarefa para saber exatamente o que o professor está pedindo.",
     gradient: "from-blue-500/15 to-transparent",
     iconBg: "bg-blue-500/15 text-blue-200",
   },
   {
     icon: Network,
-    title: "Multi-agent orchestration",
+    title: "Todas as turmas",
     description:
-      "Coordinate fleets of specialized agents. Hand off context, parallelize work, and aggregate results in real time.",
+      "Acompanha todas as suas turmas do Teams ao mesmo tempo e resolve várias tarefas em paralelo.",
     gradient: "from-cyan-500/15 to-transparent",
     iconBg: "bg-cyan-500/15 text-cyan-200",
   },
   {
     icon: Database,
-    title: "Advanced memory systems",
+    title: "Aprende seu estilo",
     description:
-      "Persistent long-term memory, semantic recall, and conversational state. Your agents learn from every interaction.",
+      "Usa suas entregas anteriores para escrever do seu jeito, com o seu vocabulário.",
     gradient: "from-sky-500/15 to-transparent",
     iconBg: "bg-sky-500/15 text-sky-200",
   },
   {
     icon: Gauge,
-    title: "Real-time processing",
+    title: "Antes do prazo",
     description:
-      "Sub-second latency with streaming responses and edge deployment. Your agents respond at the speed of thought.",
+      "Tarefas novas são resolvidas e enviadas com folga, para nada ficar para a última hora.",
     gradient: "from-amber-500/15 to-transparent",
     iconBg: "bg-amber-500/15 text-amber-200",
   },
   {
     icon: ShieldCheck,
-    title: "Enterprise security",
+    title: "Seus dados protegidos",
     description:
-      "SOC 2 Type II, GDPR, and HIPAA compliant. End-to-end encryption, audit logs, and data residency controls.",
+      "Acesso autorizado pela própria Microsoft, sem guardar sua senha. Revogue quando quiser.",
     gradient: "from-emerald-500/15 to-transparent",
     iconBg: "bg-emerald-500/15 text-emerald-200",
   },
   {
     icon: BarChart3,
-    title: "Analytics & insights",
+    title: "Histórico de entregas",
     description:
-      "Track agent performance, cost per interaction, and business impact. Optimize with built-in evaluation suites.",
+      "Veja tudo o que foi resolvido e enviado, com a resposta completa de cada tarefa.",
     gradient: "from-blue-500/15 to-transparent",
     iconBg: "bg-blue-500/15 text-blue-200",
   },
@@ -68,14 +68,14 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 grid gap-10 lg:grid-cols-2 lg:items-end">
           <div>
-            <Badge variant="cyan">Enterprise-grade</Badge>
+            <Badge variant="cyan">Por que Catolifeito</Badge>
             <h2 className="mt-5 max-w-xl font-display font-semibold text-4xl text-gradient tracking-tight md:text-5xl">
-              Built for the teams that ship the future.
+              Feito para quem tem mais o que fazer.
             </h2>
           </div>
           <p className="max-w-md text-lg text-muted-foreground leading-relaxed lg:justify-self-end">
-            Production-ready primitives, observability, and compliance — out of
-            the box. So you can focus on what your agents do, not the plumbing.
+            Você foca no que importa. O Catolifeito cuida das tarefas, dos
+            prazos e das entregas.
           </p>
         </div>
 

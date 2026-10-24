@@ -24,18 +24,18 @@ export function CTA() {
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 backdrop-blur-sm">
           <Sparkles className="size-3.5 text-blue-200" />
           <span className="font-medium text-blue-200 text-xs">
-            Build your first agent today
+            Conecte seu Teams em 1 minuto
           </span>
         </div>
 
         <h2 className="font-display font-semibold text-5xl text-gradient leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-          Ship intelligence,
+          Menos tarefa,
           <br />
-          <span className="text-gradient-blue">not infrastructure.</span>
+          <span className="text-gradient-blue">mais tempo livre.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-          Join thousands of teams shipping autonomous AI in production. Free to
-          start. No credit card. No sales call.
+          Deixe o Catolifeito cuidar das tarefas do Teams enquanto você cuida do
+          resto. Grátis para começar, sem cartão de crédito.
         </p>
 
         <form
@@ -43,19 +43,19 @@ export function CTA() {
           onSubmit={(e) => e.preventDefault()}
         >
           <Input
-            aria-label="Work email"
-            placeholder="you@company.com"
+            aria-label="E-mail"
+            placeholder="voce@email.com"
             required
             type="email"
           />
           <Button size="lg" type="submit">
-            Get started
+            Começar
             <ArrowRight />
           </Button>
         </form>
 
         <p className="mt-5 text-muted-foreground text-xs">
-          14-day free trial · No credit card required · Cancel anytime
+          7 dias grátis · Sem cartão de crédito · Cancele quando quiser
         </p>
       </div>
     </section>

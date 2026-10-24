@@ -1,12 +1,12 @@
 import {
   ArrowRight,
-  Bot,
-  Cpu,
-  Network,
+  BookOpen,
+  CalendarCheck,
+  ClipboardList,
   Play,
+  Send,
   Sparkles,
-  Workflow,
-  Zap,
+  Users,
 } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -22,44 +22,44 @@ export function Hero() {
         <div className="flex flex-col items-center text-center">
           <Link
             className="group relative mb-8 inline-flex items-center gap-2 rounded-full py-1 pr-4 pl-1"
-            href="#agents"
+            href="#capabilities"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/15 px-3 py-0.5 font-medium text-[11px] text-blue-200">
               <span className="relative flex size-1.5">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex size-1.5 rounded-full bg-blue-400" />
               </span>
-              NEW
+              NOVO
             </span>
             <span className="font-medium text-sm text-white/90">
-              Agent orchestration is live
+              Integração com Microsoft Teams no ar
             </span>
             <ArrowRight className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
           </Link>
 
           <h1 className="max-w-4xl text-balance font-display font-semibold text-5xl text-gradient leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[88px]">
-            Your AI workforce,
+            Seus trabalhos do Teams,
             <br />
-            <span className="text-gradient-blue">ready for production.</span>
+            <span className="text-gradient-blue">já estão feitos.</span>
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-balance text-lg text-muted-foreground leading-relaxed md:text-xl">
-            Design, deploy, and scale autonomous agents that reason, act, and
-            collaborate. Built for teams shipping intelligence at the edge of
-            what's possible.
+            Conecte seu Microsoft Teams e o Catolifeito escaneia suas tarefas,
+            resolve cada uma e envia em seu nome — antes do prazo, sem você
+            levantar um dedo.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link href="#signup">
               <Button size="lg">
-                Start building
+                Conectar meu Teams
                 <ArrowRight />
               </Button>
             </Link>
-            <Link href="#demo">
+            <Link href="#capabilities">
               <Button size="lg" variant="secondary">
                 <Play className="size-3.5 fill-current" />
-                Watch demo
+                Ver como funciona
               </Button>
             </Link>
           </div>
@@ -67,15 +67,15 @@ export function Hero() {
           <div className="mt-8 flex items-center gap-6 text-muted-foreground text-xs">
             <span className="inline-flex items-center gap-1.5">
               <span className="size-1.5 rounded-full bg-emerald-400" />
-              SOC 2 Type II
+              Integra com Microsoft Teams
             </span>
             <span className="inline-flex items-center gap-1.5">
               <span className="size-1.5 rounded-full bg-emerald-400" />
-              99.99% uptime
+              Entrega antes do prazo
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-emerald-400" />
-              Free 14-day trial
+              <span className="size-1.5 rounded-full bg-emerald-400" />7 dias
+              grátis
             </span>
           </div>
         </div>
@@ -93,7 +93,7 @@ export function Hero() {
                 </div>
                 <div className="flex items-center gap-2 rounded-md bg-white/[0.04] px-3 py-1 font-mono text-[11px] text-muted-foreground">
                   <span className="size-1.5 rounded-full bg-emerald-400" />
-                  nova.ai / agents / production
+                  catolifeito.app / tarefas
                 </div>
                 <div className="w-12" />
               </div>
@@ -101,10 +101,10 @@ export function Hero() {
               <div className="grid grid-cols-12 gap-px bg-white/[0.04]">
                 <aside className="col-span-3 hidden flex-col gap-1 bg-[#080a18] p-4 md:flex">
                   {[
-                    { icon: Bot, label: "Agents", count: 24 },
-                    { icon: Workflow, label: "Workflows", count: 8 },
-                    { icon: Network, label: "Integrations", count: 42 },
-                    { icon: Cpu, label: "Models", count: 12 },
+                    { icon: ClipboardList, label: "Tarefas", count: 12 },
+                    { icon: Users, label: "Turmas", count: 6 },
+                    { icon: BookOpen, label: "Matérias", count: 9 },
+                    { icon: Send, label: "Entregues", count: 48 },
                   ].map((item) => (
                     <div
                       className="flex items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-white/[0.03]"
@@ -125,39 +125,39 @@ export function Hero() {
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-display font-medium text-foreground text-sm">
-                        Customer triage agent
+                        Lista 3 — Cálculo I
                       </div>
                       <div className="mt-0.5 inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
                         <span className="size-1.5 rounded-full bg-emerald-400" />
-                        Running · 3 active tasks
+                        Resolvendo · 3 tarefas na fila
                       </div>
                     </div>
                     <Badge variant="blue">
                       <Sparkles className="size-3" />
-                      GPT-5
+                      IA
                     </Badge>
                   </div>
 
                   <div className="space-y-2">
                     {[
                       {
-                        action: "fetch_ticket",
-                        desc: "Loaded ticket #4821 — billing inquiry",
+                        action: "sincronizar_teams",
+                        desc: "6 turmas sincronizadas · 3 tarefas novas",
                         ms: 142,
                       },
                       {
-                        action: "search_kb",
-                        desc: "Found 3 relevant articles · confidence 0.94",
+                        action: "escanear_tarefa",
+                        desc: "Encontrou “Lista 3 — Derivadas” · prazo amanhã",
                         ms: 318,
                       },
                       {
-                        action: "draft_reply",
-                        desc: "Composed personalized response with refund offer",
+                        action: "resolver",
+                        desc: "12 questões resolvidas passo a passo",
                         ms: 612,
                       },
                       {
-                        action: "route_to_human",
-                        desc: "Escalated · attached context summary",
+                        action: "enviar",
+                        desc: "Entregue no Teams em seu nome",
                         ms: 89,
                       },
                     ].map((step, i) => (
@@ -180,12 +180,12 @@ export function Hero() {
                   <div className="grid grid-cols-3 gap-3 pt-2">
                     {[
                       {
-                        label: "Resolved today",
-                        value: "1,284",
-                        trend: "+18%",
+                        label: "Entregues hoje",
+                        value: "7",
+                        trend: "+3",
                       },
-                      { label: "Avg. response", value: "1.2s", trend: "-9%" },
-                      { label: "CSAT", value: "94.7", trend: "+2.1" },
+                      { label: "Tempo médio", value: "4 min", trend: "-12%" },
+                      { label: "No prazo", value: "100%", trend: "+0" },
                     ].map((stat) => (
                       <div
                         className="rounded-md border border-white/[0.05] bg-white/[0.02] p-3"
@@ -213,14 +213,14 @@ export function Hero() {
           <div className="absolute top-1/3 -left-6 hidden rounded-xl border border-white/[0.08] bg-[#0a0c1f]/90 p-3 backdrop-blur-xl lg:block">
             <div className="flex items-center gap-2">
               <span className="grid size-8 place-items-center rounded-md bg-cyan-500/15">
-                <Zap className="size-4 text-cyan-300" />
+                <CalendarCheck className="size-4 text-cyan-300" />
               </span>
               <div>
                 <div className="font-medium text-foreground text-xs">
-                  Latency
+                  Prazos
                 </div>
                 <div className="font-mono text-[10px] text-emerald-400">
-                  ↓ 42% this week
+                  0 atrasados esta semana
                 </div>
               </div>
             </div>
@@ -229,14 +229,14 @@ export function Hero() {
           <div className="absolute top-2/3 -right-6 hidden rounded-xl border border-white/[0.08] bg-[#0a0c1f]/90 p-3 backdrop-blur-xl lg:block">
             <div className="flex items-center gap-2">
               <span className="grid size-8 place-items-center rounded-md bg-sky-500/15">
-                <Bot className="size-4 text-sky-300" />
+                <ClipboardList className="size-4 text-sky-300" />
               </span>
               <div>
                 <div className="font-medium text-foreground text-xs">
-                  24 agents
+                  12 tarefas
                 </div>
                 <div className="font-mono text-[10px] text-muted-foreground">
-                  3 deploying
+                  3 resolvendo
                 </div>
               </div>
             </div>

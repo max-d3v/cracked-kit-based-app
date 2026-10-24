@@ -6,54 +6,50 @@ import { Button } from "@/components/ui/button";
 
 const tiers = [
   {
-    name: "Starter",
-    price: "$0",
-    cadence: "free for 14 days",
-    description: "For builders exploring agentic AI.",
+    name: "Grátis",
+    price: "R$ 0",
+    cadence: "por 7 dias",
+    description: "Para testar com suas primeiras tarefas.",
     features: [
-      "1 user",
-      "1,000 monthly interactions",
-      "5 agents",
-      "Community support",
-      "Standard models",
+      "1 conta do Teams",
+      "Até 5 tarefas",
+      "Revisão antes do envio",
+      "Suporte pela comunidade",
     ],
-    cta: "Start free",
+    cta: "Começar grátis",
     variant: "secondary" as const,
     highlight: false,
   },
   {
-    name: "Professional",
-    price: "$77",
-    cadence: "per month",
-    description: "For teams running production agents.",
+    name: "Pro",
+    price: "R$ 29",
+    cadence: "por mês",
+    description: "Para quem quer o semestre no automático.",
     features: [
-      "3 users included",
-      "50,000 monthly interactions",
-      "50 agents",
-      "Priority support · 24h",
-      "Frontier models (GPT-5, Claude 4.7)",
-      "Custom integrations",
-      "Advanced analytics",
+      "Tarefas ilimitadas",
+      "Envio automático em seu nome",
+      "Todas as matérias",
+      "Redações no seu estilo",
+      "Lembretes de prazo",
+      "Suporte prioritário",
     ],
-    cta: "Start free trial",
+    cta: "Testar 7 dias grátis",
     variant: "default" as const,
     highlight: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    cadence: "annual contract",
-    description: "For mission-critical deployments.",
+    name: "Turma",
+    price: "R$ 19",
+    cadence: "por aluno/mês",
+    description: "Para grupos de estudo e repúblicas.",
     features: [
-      "Unlimited users",
-      "Unlimited interactions",
-      "Unlimited agents",
-      "Dedicated success engineer",
-      "SOC 2, HIPAA, GDPR",
-      "On-prem & VPC deployment",
-      "99.99% uptime SLA",
+      "A partir de 5 alunos",
+      "Tudo do plano Pro",
+      "Painel do grupo",
+      "Cobrança única",
+      "Suporte dedicado",
     ],
-    cta: "Contact sales",
+    cta: "Falar com a gente",
     variant: "secondary" as const,
     highlight: false,
   },
@@ -64,13 +60,13 @@ export function Pricing() {
     <section className="relative py-24 md:py-32" id="pricing">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <Badge variant="emerald">Pricing</Badge>
+          <Badge variant="emerald">Preços</Badge>
           <h2 className="mt-5 font-display font-semibold text-4xl text-gradient tracking-tight md:text-5xl">
-            Simple, transparent pricing.
+            Preço simples, sem pegadinha.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Pay only for what you use. Scale up or down anytime. No hidden fees,
-            no annual lock-in (unless you want it).
+            Comece grátis e cancele quando quiser. Sem fidelidade e sem taxa
+            escondida.
           </p>
         </div>
 
@@ -96,7 +92,7 @@ export function Pricing() {
                   <div className="absolute -top-3 right-6">
                     <Badge variant="blue">
                       <Sparkles className="size-3" />
-                      Most popular
+                      Mais popular
                     </Badge>
                   </div>
                 )}

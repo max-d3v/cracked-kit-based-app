@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="dark" lang="en">
+    <html className="dark" lang="pt-BR">
       <body
         className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable} antialiased`}
         style={{
