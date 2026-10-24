@@ -88,8 +88,14 @@ function computeAnalytics(assignments: Assignment[]) {
   };
 }
 
+const ANALYTICS_REFETCH_INTERVAL = 10_000;
+
 export function AnalyticsContent() {
-  const { data } = useSuspenseQuery(orpc.assignments.list.queryOptions());
+  const { data } = useSuspenseQuery(
+    orpc.assignments.list.queryOptions({
+      refetchInterval: ANALYTICS_REFETCH_INTERVAL,
+    })
+  );
   const { assignments } = data;
 
   const analytics = useMemo(() => computeAnalytics(assignments), [assignments]);

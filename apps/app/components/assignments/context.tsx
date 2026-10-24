@@ -1,15 +1,14 @@
 "use client";
 
-import type { Assignment } from "@workspace/types/use-cases/assignments";
 import { createContext, useContext, useState } from "react";
 
 interface AssignmentsContextValue {
   currentPage: number;
   itemsPerPage: number;
-  selectedAssignment: Assignment | null;
+  selectedAssignmentId: string | null;
   setCurrentPage: (page: number) => void;
   setItemsPerPage: (n: number) => void;
-  setSelectedAssignment: (assignment: Assignment | null) => void;
+  setSelectedAssignmentId: (id: string | null) => void;
   setTotalPages: (pages: number) => void;
   totalPages: number;
 }
@@ -31,8 +30,11 @@ export function AssignmentsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [selectedAssignment, setSelectedAssignment] =
-    useState<Assignment | null>(null);
+  // Only the id: the sheet reads the live row from the list query so it
+  // reflects mutations and polling.
+  const [selectedAssignmentId, setSelectedAssignmentId] = useState<
+    string | null
+  >(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [itemsPerPage, setItemsPerPageRaw] = useState(10);
@@ -45,8 +47,8 @@ export function AssignmentsProvider({
   return (
     <AssignmentsContext.Provider
       value={{
-        selectedAssignment,
-        setSelectedAssignment,
+        selectedAssignmentId,
+        setSelectedAssignmentId,
         currentPage,
         setCurrentPage,
         totalPages,

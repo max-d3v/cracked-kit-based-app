@@ -5,6 +5,7 @@ import {
   pgTable,
   text,
   timestamp,
+  uniqueIndex,
   uuid,
   varchar,
 } from "drizzle-orm/pg-core";
@@ -46,25 +47,36 @@ export const subscription = pgTable("subscription", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
-export const assignment = pgTable("assignment", {
-  id: uuid().default(sql`gen_random_uuid()`).primaryKey(),
-  userId: varchar("user_id", { length: 255 }).notNull(),
+export const assignment = pgTable(
+  "assignment",
+  {
+    id: uuid().default(sql`gen_random_uuid()`).primaryKey(),
+    userId: varchar("user_id", { length: 255 }).notNull(),
 
-  title: varchar({ length: 255 }).notNull(),
-  subject: varchar({ length: 100 }).notNull(),
-  classroom: varchar({ length: 255 }).notNull(),
-  teacher: varchar({ length: 255 }),
-  instructions: text(),
-  solution: text(),
-  status: assignmentStatusEnum().default("found").notNull(),
-  progress: integer().default(0).notNull(),
-  grade: varchar({ length: 20 }),
+    title: varchar({ length: 255 }).notNull(),
+    subject: varchar({ length: 100 }).notNull(),
+    classroom: varchar({ length: 255 }).notNull(),
+    teacher: varchar({ length: 255 }),
+    instructions: text(),
+    solution: text(),
+    status: assignmentStatusEnum().default("found").notNull(),
+    progress: integer().default(0).notNull(),
+    grade: varchar({ length: 20 }),
 
-  dueDate: timestamp("due_date"),
-  submittedAt: timestamp("submitted_at"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-});
+    dueDate: timestamp("due_date"),
+    submittedAt: timestamp("submitted_at"),
+    /** Set when the user removes it from their list; kept so sync won't re-add it. */
+    dismissedAt: timestamp("dismissed_at"),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("assignment_user_id_title_unique").on(
+      table.userId,
+      table.title
+    ),
+  ]
+);
 
 export const subscriptionRelations = relations(subscription, ({ one }) => ({
   user: one(authSchema.user, {

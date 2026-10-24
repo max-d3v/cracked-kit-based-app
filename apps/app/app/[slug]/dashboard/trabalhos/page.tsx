@@ -13,16 +13,10 @@ export const metadata = {
   title: "Trabalhos · Catolifeito",
 };
 
-const ASSIGNMENTS_REFETCH_INTERVAL = 10_000;
-
 export default async function AssignmentsPage() {
   const queryClient = getQueryClient();
 
-  void queryClient.prefetchQuery(
-    orpc.assignments.list.queryOptions({
-      refetchInterval: ASSIGNMENTS_REFETCH_INTERVAL,
-    })
-  );
+  void queryClient.prefetchQuery(orpc.assignments.list.queryOptions());
 
   return (
     <AssignmentsProvider>

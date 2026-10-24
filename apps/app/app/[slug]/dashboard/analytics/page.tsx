@@ -4,16 +4,10 @@ import { Suspense } from "react";
 import { AnalyticsContent } from "@/components/analytics";
 import { AnalyticsLoading } from "@/components/analytics/analytics-loading";
 
-const ANALYTICS_REFETCH_INTERVAL = 10_000;
-
 export default async function AnalyticsPage() {
   const queryClient = getQueryClient();
 
-  void queryClient.prefetchQuery(
-    orpc.assignments.list.queryOptions({
-      refetchInterval: ANALYTICS_REFETCH_INTERVAL,
-    })
-  );
+  void queryClient.prefetchQuery(orpc.assignments.list.queryOptions());
 
   return (
     <Suspense fallback={<AnalyticsLoading />}>

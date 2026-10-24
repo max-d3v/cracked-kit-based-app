@@ -181,20 +181,17 @@ const DEMO_ASSIGNMENTS: DemoAssignment[] = [
 ];
 
 export const buildDemoAssignments = (
-  userId: string,
-  existingTitles: Set<string>
+  userId: string
 ): CreateAssignmentParams[] => {
   const now = Date.now();
 
-  return DEMO_ASSIGNMENTS.filter((demo) => !existingTitles.has(demo.title)).map(
-    ({ dueInDays, submittedDaysAgo, ...demo }) => ({
-      ...demo,
-      userId,
-      dueDate: new Date(now + dueInDays * DAY_MS),
-      submittedAt:
-        submittedDaysAgo === undefined
-          ? null
-          : new Date(now - submittedDaysAgo * DAY_MS),
-    })
-  );
+  return DEMO_ASSIGNMENTS.map(({ dueInDays, submittedDaysAgo, ...demo }) => ({
+    ...demo,
+    userId,
+    dueDate: new Date(now + dueInDays * DAY_MS),
+    submittedAt:
+      submittedDaysAgo === undefined
+        ? null
+        : new Date(now - submittedDaysAgo * DAY_MS),
+  }));
 };

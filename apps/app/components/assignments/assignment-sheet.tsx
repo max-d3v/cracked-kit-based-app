@@ -1,6 +1,7 @@
 "use client";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { orpc } from "@workspace/data-layer/orpc.tanstack";
 import type { Assignment } from "@workspace/types/use-cases/assignments";
 import {
   AlertDialog,
@@ -32,7 +33,7 @@ import {
   User,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { formatDateTime, formatRelativeDue } from "@/lib/format";
 import { useAssignmentsContext } from "./context";
 import {
@@ -107,10 +108,40 @@ function StatusNotice({ assignment }: { assignment: Assignment }) {
 }
 
 export function AssignmentSheet() {
-  const queryClient = useQueryClient();
-  const { selectedAssignment: assignment, setSelectedAssignment } =
+  const { selectedAssignmentId, setSelectedAssignmentId } =
     useAssignmentsContext();
-  const [solution, setSolution] = useState("");
+  const { data } = useQuery({
+    ...orpc.assignments.list.queryOptions(),
+    enabled: selectedAssignmentId !== null,
+  });
+  const assignment = data?.assignments.find(
+    (a) => a.id === selectedAssignmentId
+  );
+
+  if (!assignment) {
+    return null;
+  }
+
+  // Keyed by id so the draft resets when another assignment is opened, but
+  // survives refetches of the one being edited.
+  return (
+    <AssignmentSheetContent
+      assignment={assignment}
+      key={assignment.id}
+      onClose={() => setSelectedAssignmentId(null)}
+    />
+  );
+}
+
+function AssignmentSheetContent({
+  assignment,
+  onClose: close,
+}: {
+  assignment: Assignment;
+  onClose: () => void;
+}) {
+  const queryClient = useQueryClient();
+  const [solution, setSolution] = useState(assignment.solution ?? "");
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   const approve = useMutation(approveAssignment(queryClient));
@@ -118,15 +149,6 @@ export function AssignmentSheet() {
   const save = useMutation(updateAssignmentSolution(queryClient));
   const remove = useMutation(deleteAssignment(queryClient));
 
-  useEffect(() => {
-    setSolution(assignment?.solution ?? "");
-  }, [assignment]);
-
-  if (!assignment) {
-    return null;
-  }
-
-  const close = () => setSelectedAssignment(null);
   const isReview = assignment.status === "review";
   const canRetry = isReview || assignment.status === "failed";
   const solutionChanged = solution !== (assignment.solution ?? "");

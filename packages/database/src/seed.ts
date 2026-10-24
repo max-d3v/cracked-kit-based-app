@@ -61,7 +61,11 @@ async function seed() {
       return;
     }
 
-    const created = await db.insert(assignment).values(rows).returning();
+    const created = await db
+      .insert(assignment)
+      .values(rows)
+      .onConflictDoNothing()
+      .returning();
     console.log(
       `✅ Created ${created.length} assignments for ${users.length} users`
     );

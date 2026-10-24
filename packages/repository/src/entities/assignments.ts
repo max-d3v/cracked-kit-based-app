@@ -1,11 +1,19 @@
 import type { SQL, SQLWrapper } from "@workspace/database/client";
-import { and, asc, db, eq, ilike, or } from "@workspace/database/client";
+import {
+  and,
+  asc,
+  db,
+  eq,
+  ilike,
+  isNull,
+  or,
+} from "@workspace/database/client";
 import { assignment } from "@workspace/database/schema";
 import { HttpError } from "@workspace/types/errors/http";
 import type {
   AssignmentRawObject,
   CreateAssignmentParams,
-  DeleteAssignmentParams,
+  DismissAssignmentParams,
   GetAssignmentParams,
   ListAssignmentsParams,
   UpdateAssignmentParams,
@@ -26,10 +34,20 @@ const buildSearchClause = (search?: string) => {
   );
 };
 
+const byVisibleId = (id: string, userId: string) =>
+  and(
+    eq(assignment.id, id),
+    eq(assignment.userId, userId),
+    isNull(assignment.dismissedAt)
+  );
+
 const buildWhereClause = (params: WhereClauseParams): SQL | undefined => {
   const { search, userId } = params;
 
-  const whereClause: SQLWrapper[] = [eq(assignment.userId, userId)];
+  const whereClause: SQLWrapper[] = [
+    eq(assignment.userId, userId),
+    isNull(assignment.dismissedAt),
+  ];
   const searchClause = buildSearchClause(search);
   if (searchClause) {
     whereClause.push(searchClause);
@@ -64,7 +82,7 @@ export const get = async (
   const { id, userId } = params;
 
   const found = await db.query.assignment.findFirst({
-    where: and(eq(assignment.id, id), eq(assignment.userId, userId)),
+    where: byVisibleId(id, userId),
   });
 
   if (!found) {
@@ -80,7 +98,12 @@ export const createMany = async (
   if (params.length === 0) {
     return [];
   }
-  return await db.insert(assignment).values(params).returning();
+  // Rows whose (user_id, title) already exist, dismissed ones included, are skipped.
+  return await db
+    .insert(assignment)
+    .values(params)
+    .onConflictDoNothing({ target: [assignment.userId, assignment.title] })
+    .returning();
 };
 
 export const updateOne = async (
@@ -91,7 +114,7 @@ export const updateOne = async (
   const result = await db
     .update(assignment)
     .set({ ...data, updatedAt: new Date() })
-    .where(and(eq(assignment.id, id), eq(assignment.userId, userId)))
+    .where(byVisibleId(id, userId))
     .returning();
 
   const updated = result[0];
@@ -102,22 +125,25 @@ export const updateOne = async (
   return updated;
 };
 
-export const deleteOne = async (
-  params: DeleteAssignmentParams
+/** Soft-deletes so a later sync recognizes the assignment and doesn't re-add it. */
+export const dismissOne = async (
+  params: DismissAssignmentParams
 ): Promise<AssignmentRawObject> => {
   const { id, userId } = params;
 
+  const now = new Date();
   const result = await db
-    .delete(assignment)
-    .where(and(eq(assignment.id, id), eq(assignment.userId, userId)))
+    .update(assignment)
+    .set({ dismissedAt: now, updatedAt: now })
+    .where(byVisibleId(id, userId))
     .returning();
 
-  const deleted = result[0];
-  if (!deleted) {
+  const dismissed = result[0];
+  if (!dismissed) {
     throw new HttpError(404, "Assignment not found");
   }
 
-  return deleted;
+  return dismissed;
 };
 
 export const deleteAllByUserId = async (params: {

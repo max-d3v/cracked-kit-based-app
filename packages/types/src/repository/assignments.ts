@@ -21,7 +21,7 @@ export type GetAssignmentParams = {
   userId: string;
 };
 
-export type DeleteAssignmentParams = {
+export type DismissAssignmentParams = {
   id: string;
   userId: string;
 };

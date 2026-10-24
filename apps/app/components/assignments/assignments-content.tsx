@@ -9,16 +9,22 @@ import { AssignmentsTable } from "./assignments-table";
 import { useAssignmentsContext } from "./context";
 import type { StatusFilter } from "./status-config";
 
+const ASSIGNMENTS_REFETCH_INTERVAL = 10_000;
+
 export function AssignmentsContent() {
   const {
     currentPage,
     setCurrentPage,
     itemsPerPage,
     setTotalPages,
-    setSelectedAssignment,
+    setSelectedAssignmentId,
   } = useAssignmentsContext();
 
-  const { data } = useSuspenseQuery(orpc.assignments.list.queryOptions());
+  const { data } = useSuspenseQuery(
+    orpc.assignments.list.queryOptions({
+      refetchInterval: ASSIGNMENTS_REFETCH_INTERVAL,
+    })
+  );
 
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
@@ -70,7 +76,7 @@ export function AssignmentsContent() {
 
       <AssignmentsTable
         assignments={paginatedAssignments}
-        onSelect={setSelectedAssignment}
+        onSelect={(assignment) => setSelectedAssignmentId(assignment.id)}
         searchQuery={searchQuery}
         statusFilter={statusFilter}
         total={filteredAssignments.length}

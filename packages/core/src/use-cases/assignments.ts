@@ -2,11 +2,12 @@ import { EVENTS } from "@workspace/analytics/events";
 import { capture } from "@workspace/analytics/server";
 import {
   createMany,
-  deleteOne,
+  dismissOne,
   get,
   list,
   updateOne,
 } from "@workspace/repository/entities/assignments";
+import { HttpError } from "@workspace/types/errors/http";
 import type { AssignmentRawObject } from "@workspace/types/repository/assignments";
 import type {
   AssignmentCounts,
@@ -65,18 +66,15 @@ export const getUserAssignments = async (
 
 /**
  * Simulates scanning the user's Microsoft Teams classes.
- * Inserts any demo assignment the user doesn't have yet.
+ * Inserts any demo assignment the user doesn't have yet. Dismissed ones still
+ * count as "had", so removing an assignment sticks across syncs.
  */
 export const syncAssignments = async (
   params: UserIdInput
 ): Promise<SyncAssignmentsResponse> => {
   const { userId } = params;
 
-  const existing = await list({ userId });
-  const existingTitles = new Set(existing.map((a) => a.title));
-  const created = await createMany(
-    buildDemoAssignments(userId, existingTitles)
-  );
+  const created = await createMany(buildDemoAssignments(userId));
 
   capture({
     event: EVENTS.assignments_synced,
@@ -113,6 +111,11 @@ export const approveAssignment = async (params: UserAssignment) => {
 export const retryAssignment = async (params: UserAssignment) => {
   const { userId, assignmentId } = params;
 
+  const current = await get({ id: assignmentId, userId });
+  if (current.status !== "review" && current.status !== "failed") {
+    return current;
+  }
+
   return await updateOne({
     id: assignmentId,
     userId,
@@ -128,12 +131,20 @@ export const updateAssignmentSolution = async (
 ) => {
   const { userId, assignmentId, solution } = params;
 
+  const current = await get({ id: assignmentId, userId });
+  if (current.status !== "review") {
+    throw new HttpError(
+      409,
+      "Only assignments awaiting review can have their solution edited"
+    );
+  }
+
   return await updateOne({ id: assignmentId, userId, solution });
 };
 
 export const deleteAssignment = async (params: UserAssignment) => {
   const { userId, assignmentId } = params;
 
-  await deleteOne({ id: assignmentId, userId });
+  await dismissOne({ id: assignmentId, userId });
   return { deleted: true };
 };
