@@ -6,13 +6,13 @@ import { toast } from "sonner";
 
 export function cancelSubscription(queryClient: QueryClient) {
   return orpc.billing.cancelSubscription.mutationOptions({
-    meta: { errorTitle: "Failed to cancel subscription" },
+    meta: { errorTitle: "Não foi possível cancelar a assinatura" },
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: orpc.billing.getSubscription.key(),
       });
       toast.success(
-        "Subscription canceled. It will end at the end of the billing period."
+        "Assinatura cancelada. Ela termina no fim do período de cobrança atual."
       );
     },
   });

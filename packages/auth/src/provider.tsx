@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 import type { ReactNode } from "react";
 import { authClient } from "./client";
 import { getOrganizationSlug } from "./lib/utils";
+import { ptBRLocalization } from "./localization";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -21,6 +22,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       authClient={authClient}
       deleteUser={{ enabled: true }}
       Link={Link}
+      localization={ptBRLocalization}
       magicLink
       multiSession
       navigate={({ to, replace }) =>

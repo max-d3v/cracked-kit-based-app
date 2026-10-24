@@ -1,9 +1,9 @@
+import assignmentsRouter from "./routers/assignments";
 import billingRouter from "./routers/billing";
-import tasksRouter from "./routers/tasks";
 import usersRouter from "./routers/users";
 
 export const router = {
-  tasks: tasksRouter,
+  assignments: assignmentsRouter,
   billing: billingRouter,
   users: usersRouter,
 };

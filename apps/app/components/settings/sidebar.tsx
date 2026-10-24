@@ -16,35 +16,35 @@ import { NavMain } from "@/components/nav-main";
 
 const navMain = [
   {
-    title: "Account",
+    title: "Conta",
     items: [
       {
-        title: "Profile",
+        title: "Perfil",
         url: "account/profile",
         icon: User,
       },
       {
-        title: "Security",
+        title: "Segurança",
         url: "account/security",
         icon: Shield,
       },
       {
-        title: "My Organizations",
+        title: "Minhas organizações",
         url: "account/organizations",
         icon: Briefcase,
       },
     ],
   },
   {
-    title: "Organization",
+    title: "Organização",
     items: [
       {
-        title: "Profile",
+        title: "Perfil",
         url: "organization/profile",
         icon: Briefcase,
       },
       {
-        title: "People",
+        title: "Pessoas",
         url: "organization/people",
         icon: Users,
       },
@@ -70,10 +70,10 @@ export function SettingsSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Back to app">
+            <SidebarMenuButton asChild tooltip="Voltar para o app">
               <Link href={`/${organizationSlug}/dashboard`}>
                 <ArrowLeft />
-                <span>Back to app</span>
+                <span>Voltar para o app</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

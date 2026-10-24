@@ -1,52 +1,52 @@
 import {
   ArrowUpRight,
-  Headphones,
-  LineChart,
-  Microscope,
-  Settings2,
+  Calculator,
+  CodeXml,
+  ListChecks,
+  PenLine,
 } from "lucide-react";
 import BorderGlow from "@/components/border-glow";
 import { Badge } from "@/components/ui/badge";
 
 const useCases = [
   {
-    icon: Headphones,
-    title: "Customer service",
+    icon: Calculator,
+    title: "Exatas",
     description:
-      "Resolve tickets at superhuman speed with empathy-tuned agents and full conversational memory.",
+      "Listas de exercícios de matemática, física e química resolvidas passo a passo, com cálculos e justificativas.",
     metrics: [
-      { label: "CSAT score", value: "95%" },
-      { label: "Cost reduction", value: "80%" },
+      { label: "Questões por lista", value: "50+" },
+      { label: "Tempo médio", value: "4 min" },
     ],
   },
   {
-    icon: LineChart,
-    title: "Sales & marketing",
+    icon: PenLine,
+    title: "Redação & humanas",
     description:
-      "Personalize at scale. Agents that qualify leads, write copy, and run multi-channel campaigns autonomously.",
+      "Redações, resenhas e resumos escritos no seu tom, respeitando o enunciado e o limite de palavras.",
     metrics: [
-      { label: "Conversion rate", value: "3×" },
-      { label: "Time saved", value: "60%" },
+      { label: "Normas", value: "ABNT" },
+      { label: "Ajustes", value: "∞" },
     ],
   },
   {
-    icon: Settings2,
-    title: "Operations",
+    icon: CodeXml,
+    title: "Programação",
     description:
-      "Automate document processing, ticket routing, and back-office workflows with auditable agent runs.",
+      "Exercícios de código resolvidos, testados e entregues com os arquivos no formato pedido.",
     metrics: [
-      { label: "Processing speed", value: "70% ↑" },
-      { label: "Accuracy", value: "90%" },
+      { label: "Linguagens", value: "20+" },
+      { label: "Código testado", value: "100%" },
     ],
   },
   {
-    icon: Microscope,
-    title: "Research & analysis",
+    icon: ListChecks,
+    title: "Questionários",
     description:
-      "Unleash agents on terabytes of unstructured data. Synthesize, summarize, and surface what matters.",
+      "Formulários e questionários vinculados à tarefa respondidos antes de o prazo fechar.",
     metrics: [
-      { label: "Faster insights", value: "10×" },
-      { label: "Source coverage", value: "100%" },
+      { label: "Entregas no prazo", value: "100%" },
+      { label: "Atrasos", value: "0" },
     ],
   },
 ];
@@ -56,13 +56,13 @@ export function UseCases() {
     <section className="relative py-24 md:py-32" id="solutions">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <Badge variant="sky">Solutions</Badge>
+          <Badge variant="sky">Matérias</Badge>
           <h2 className="mt-5 font-display font-semibold text-4xl text-gradient tracking-tight md:text-5xl">
-            Transformation, by the numbers.
+            Qualquer tarefa, qualquer matéria.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Teams across every function are shipping measurable outcomes with
-            Nova. Here's what they're seeing.
+            Do cálculo à redação, o Catolifeito entende o enunciado e entrega no
+            formato que o professor espera.
           </p>
         </div>
 

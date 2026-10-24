@@ -1,25 +1,21 @@
 import { auth } from "@workspace/auth/auth";
-import { Rocket } from "lucide-react";
 import { headers } from "next/headers";
 
 export async function DashboardWelcome() {
   const data = await auth.api.getSession({
-    headers: await headers(), // pass the request headers
+    headers: await headers(),
   });
 
-  const name = data?.user.name;
+  const firstName = data?.user.name?.split(" ")[0];
 
   return (
-    <div className="flex items-center gap-4 rounded-lg border bg-muted/30 p-6">
-      <div className="rounded-2xl bg-primary p-3">
-        <Rocket className="h-8 w-8 text-primary-foreground" />
-      </div>
-      <div>
-        <h2 className="font-bold text-2xl">Welcome back, {name}!</h2>
-        <p className="text-muted-foreground">
-          Ready to manage your tasks and projects
-        </p>
-      </div>
+    <div>
+      <h1 className="font-bold text-3xl">
+        {firstName ? `Olá, ${firstName}!` : "Olá!"}
+      </h1>
+      <p className="text-muted-foreground">
+        Seus trabalhos do Teams, escaneados, resolvidos e enviados em seu nome.
+      </p>
     </div>
   );
 }

@@ -21,17 +21,19 @@ export function DashboardError({ error, onRetry }: DashboardErrorProps) {
       <CardHeader>
         <div className="flex items-center gap-2">
           <AlertCircle className="h-5 w-5 text-destructive" />
-          <CardTitle className="text-base">Failed to load tasks</CardTitle>
+          <CardTitle className="text-base">
+            Não foi possível carregar seus trabalhos
+          </CardTitle>
         </div>
         <CardDescription>
           {error instanceof Error
             ? error.message
-            : "An error occurred while fetching your tasks. Please try again."}
+            : "Ocorreu um erro ao buscar seus trabalhos. Tente novamente."}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Button onClick={onRetry} size="sm" variant="outline">
-          Try Again
+          Tentar de novo
         </Button>
       </CardContent>
     </Card>

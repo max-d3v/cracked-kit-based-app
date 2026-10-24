@@ -1,31 +1,31 @@
-import { Brain, Network, Settings2, Workflow } from "lucide-react";
+import { Brain, Plug, ScanSearch, Send } from "lucide-react";
 import BorderGlow from "@/components/border-glow";
 import { Badge } from "@/components/ui/badge";
 
 const capabilities = [
   {
-    icon: Workflow,
-    title: "Design intelligent agents",
+    icon: Plug,
+    title: "Conecte seu Teams",
     description:
-      "Composable workflows with a visual builder. Drag, drop, ship — no infrastructure required.",
+      "Entre com sua conta Microsoft. Leva menos de um minuto e não precisa instalar nada.",
+  },
+  {
+    icon: ScanSearch,
+    title: "Escaneamos suas tarefas",
+    description:
+      "Lemos enunciados, anexos e prazos de todas as suas turmas assim que a tarefa é publicada.",
   },
   {
     icon: Brain,
-    title: "Advanced reasoning",
+    title: "Resolvemos cada uma",
     description:
-      "Plug in any frontier model. Fine-tune behavior with prompts, tools, and guardrails.",
+      "Listas, redações, questionários e código, resolvidos no formato que o professor pediu.",
   },
   {
-    icon: Settings2,
-    title: "Autonomous decisions",
+    icon: Send,
+    title: "Enviamos em seu nome",
     description:
-      "Goal-oriented agents that plan, retry, and self-correct. You set the outcome.",
-  },
-  {
-    icon: Network,
-    title: "Universal integrations",
-    description:
-      "Connect to any data source or API. 80+ pre-built connectors, custom tools in minutes.",
+      "A entrega é feita direto no Teams antes do prazo. Você só recebe o aviso de que deu tudo certo.",
   },
 ];
 
@@ -34,13 +34,13 @@ export function Capabilities() {
     <section className="relative py-24 md:py-32" id="capabilities">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-16 max-w-2xl text-center">
-          <Badge variant="blue">Platform</Badge>
+          <Badge variant="blue">Como funciona</Badge>
           <h2 className="mt-5 font-display font-semibold text-4xl text-gradient tracking-tight md:text-5xl">
-            The complete agent stack
+            Do Teams ao entregue, no automático
           </h2>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Everything you need to design, deploy, and scale AI agents in
-            production — without stitching together a dozen libraries.
+            Quatro passos que acontecem sozinhos, toda vez que um professor
+            publica uma tarefa nova.
           </p>
         </div>
 

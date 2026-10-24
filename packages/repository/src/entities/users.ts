@@ -60,8 +60,8 @@ const buildJoinClause = (include: JoinableParams | undefined) => {
   if (include?.organization) {
     joinClause.organization = true;
   }
-  if (include?.tasks) {
-    joinClause.tasks = true;
+  if (include?.assignments) {
+    joinClause.assignments = true;
   }
   if (include?.memberships) {
     joinClause.memberships = true;

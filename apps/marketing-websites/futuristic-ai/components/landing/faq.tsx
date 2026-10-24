@@ -3,28 +3,28 @@ import { Badge } from "@/components/ui/badge";
 
 const faqs = [
   {
-    q: "What exactly is an AI agent?",
-    a: "An AI agent is software that can perceive its environment, reason about a goal, and take autonomous actions to achieve it. Unlike a chatbot, agents can call tools, query data, and chain multi-step workflows without human-in-the-loop at every step.",
+    q: "Como o Catolifeito acessa meu Teams?",
+    a: "Você entra com sua conta Microsoft e autoriza o acesso às suas turmas e tarefas. Não guardamos sua senha, e você pode revogar o acesso a qualquer momento nas configurações da sua conta Microsoft.",
   },
   {
-    q: "Which language models do you support?",
-    a: "All the frontier models — GPT-5, Claude 4.7 Opus, Gemini 2.5 Pro, Mistral, Llama 4 — plus your own fine-tunes. Switch models per agent or even per step. We handle routing, fallback, and cost optimization.",
+    q: "Que tipos de trabalho ele resolve?",
+    a: "Listas de exercícios, redações, resumos, questionários, exercícios de programação e a maioria das tarefas com enunciado em texto ou PDF. Se uma tarefa pede algo que não conseguimos fazer, avisamos você antes do prazo.",
   },
   {
-    q: "How do you handle data privacy and compliance?",
-    a: "Nova is SOC 2 Type II, GDPR, HIPAA, and CCPA compliant out of the box. Data is encrypted in transit and at rest, never used for model training, and supports VPC and on-prem deployment for regulated workloads.",
+    q: "Ele envia sem eu ver?",
+    a: "Você escolhe. No modo automático, a entrega é feita assim que a resolução fica pronta. No modo revisão, você recebe a resposta, ajusta o que quiser e aprova o envio com um clique.",
   },
   {
-    q: "Can I connect Nova to my existing tools?",
-    a: "Yes — 80+ pre-built integrations (Salesforce, HubSpot, Snowflake, Slack, Linear, Notion, etc.) plus a TypeScript SDK to build custom tools in minutes. Anything with an API can become an agent capability.",
+    q: "E se a resposta estiver errada?",
+    a: "Cada resolução passa por uma checagem antes do envio, mas a IA pode errar. Para tarefas que valem nota alta, recomendamos o modo revisão — e você sempre pode desfazer a entrega no Teams enquanto o prazo estiver aberto.",
   },
   {
-    q: "How is pricing calculated?",
-    a: "We charge per interaction (one full agent task), not per token. This means costs are predictable and scale with business value, not with how chatty your prompt is. Enterprise plans include unlimited interactions.",
+    q: "Meus dados estão seguros?",
+    a: "Seus trabalhos e dados de conta são criptografados, nunca são vendidos e não são usados para treinar modelos. Você pode apagar tudo a qualquer momento pelo painel.",
   },
   {
-    q: "What if my agents hallucinate or make mistakes?",
-    a: "Nova ships with built-in evaluation suites, observability for every step, and guardrails for tool use. You can replay any agent run, A/B test versions, and roll back instantly if quality drops.",
+    q: "Posso cancelar quando quiser?",
+    a: "Sim. Sem fidelidade e sem multa: cancele pelo painel e o acesso continua até o fim do período já pago.",
   },
 ];
 
@@ -38,15 +38,15 @@ export function FAQ() {
         <div className="mb-14 text-center">
           <Badge variant="outline">FAQ</Badge>
           <h2 className="mt-5 font-display font-semibold text-4xl text-gradient tracking-tight md:text-5xl">
-            Questions, answered.
+            Perguntas, respondidas.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Still have questions?{" "}
+            Ainda tem dúvidas?{" "}
             <a
               className="text-foreground underline-offset-4 hover:underline"
               href="#contact"
             >
-              Talk to our team
+              Fale com a gente
             </a>
             .
           </p>

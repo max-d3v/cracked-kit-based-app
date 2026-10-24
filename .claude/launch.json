@@ -6,6 +6,12 @@
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "--filter", "@workspace/futuristic", "dev"],
       "port": 3006
+    },
+    {
+      "name": "app",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "--filter", "@workspace/app", "dev"],
+      "port": 3001
     }
   ]
 }

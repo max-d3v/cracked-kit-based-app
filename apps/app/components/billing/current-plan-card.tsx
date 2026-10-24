@@ -33,7 +33,7 @@ export function CurrentPlanCard({
   }
 
   const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString("en-US", {
+    return new Date(date).toLocaleDateString("pt-BR", {
       month: "long",
       day: "numeric",
       year: "numeric",
@@ -47,9 +47,9 @@ export function CurrentPlanCard({
           <div>
             <CardTitle className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-green-500" />
-              Current Plan
+              Plano atual
             </CardTitle>
-            <CardDescription>Your active subscription</CardDescription>
+            <CardDescription>Sua assinatura ativa</CardDescription>
           </div>
           {subscription && (
             <Button
@@ -61,10 +61,10 @@ export function CurrentPlanCard({
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Loading...
+                  Carregando...
                 </>
               ) : (
-                "Manage Billing"
+                "Gerenciar assinatura"
               )}
             </Button>
           )}
@@ -76,12 +76,12 @@ export function CurrentPlanCard({
             <div>
               <div className="mb-2 flex items-center gap-2">
                 <h3 className="font-bold text-2xl">{plan.name}</h3>
-                {plan.popular && <Badge variant="default">Popular</Badge>}
+                {plan.popular && <Badge variant="default">Mais popular</Badge>}
               </div>
               <p className="font-bold text-3xl">
                 ${plan.price}
                 <span className="font-normal text-base text-muted-foreground">
-                  /month
+                  /mês
                 </span>
               </p>
             </div>
@@ -91,8 +91,8 @@ export function CurrentPlanCard({
                 <Calendar className="h-4 w-4" />
                 <span>
                   {subscription.cancelAtPeriodEnd
-                    ? `Cancels on ${formatDate(subscription.currentPeriodEnd)}`
-                    : `Renews on ${formatDate(subscription.currentPeriodEnd)}`}
+                    ? `Cancela em ${formatDate(subscription.currentPeriodEnd)}`
+                    : `Renova em ${formatDate(subscription.currentPeriodEnd)}`}
                 </span>
               </div>
             )}

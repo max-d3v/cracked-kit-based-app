@@ -22,6 +22,13 @@
       "when": 1778886652346,
       "tag": "0002_sudden_doctor_faustus",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792877031504,
+      "tag": "0003_assignments",
+      "breakpoints": true
     }
   ]
 }

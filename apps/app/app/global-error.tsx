@@ -20,7 +20,7 @@ type GlobalErrorProps = {
 
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className="min-h-screen bg-background font-sans antialiased">
         <div className="flex min-h-screen flex-col items-center justify-center gap-8 p-6">
           <OrionLogo size="lg" />
@@ -32,28 +32,28 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                   aria-hidden="true"
                   className="h-5 w-5 text-destructive"
                 />
-                <CardTitle>Something went wrong</CardTitle>
+                <CardTitle>Algo deu errado</CardTitle>
               </div>
               <CardDescription>
-                An unexpected error occurred and the application could not
-                recover. Our team has been notified.
+                Ocorreu um erro inesperado e o aplicativo não conseguiu se
+                recuperar. Nossa equipe já foi avisada.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="rounded-lg bg-muted p-4">
                 <p className="break-words font-mono text-muted-foreground text-sm">
-                  {error.message || "Unknown error"}
+                  {error.message || "Erro desconhecido"}
                 </p>
                 {error.digest && (
                   <p className="mt-2 font-mono text-muted-foreground text-xs">
-                    Digest: {error.digest}
+                    Código: {error.digest}
                   </p>
                 )}
               </div>
               <div className="flex flex-col gap-2 sm:flex-row">
                 <Button className="flex-1" onClick={reset} type="button">
                   <RefreshCcw aria-hidden="true" />
-                  Try again
+                  Tentar de novo
                 </Button>
                 <Button
                   asChild
@@ -63,7 +63,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
                 >
                   <a href="/">
                     <Home aria-hidden="true" />
-                    Go home
+                    Ir para o início
                   </a>
                 </Button>
               </div>

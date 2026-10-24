@@ -14,7 +14,7 @@ export function EditProfileButton() {
   return (
     <>
       <Button onClick={() => setIsOpen(true)} size="sm" variant="outline">
-        Edit Profile
+        Editar perfil
       </Button>
 
       <EditProfileModal onOpenChange={setIsOpen} open={isOpen} user={user} />

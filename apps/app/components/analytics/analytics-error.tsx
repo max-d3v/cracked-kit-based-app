@@ -23,18 +23,18 @@ export function AnalyticsError({ error, onRetry }: AnalyticsErrorProps) {
           <div className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-destructive" />
             <CardTitle className="text-base">
-              Failed to load analytics
+              Não foi possível carregar seu desempenho
             </CardTitle>
           </div>
           <CardDescription>
             {error instanceof Error
               ? error.message
-              : "An error occurred while fetching your analytics. Please try again."}
+              : "Ocorreu um erro ao buscar seus dados. Tente novamente."}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Button onClick={onRetry} size="sm" variant="outline">
-            Try Again
+            Tentar de novo
           </Button>
         </CardContent>
       </Card>

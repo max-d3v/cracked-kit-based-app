@@ -13,6 +13,20 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { ModeToggle } from "@/components/mode-toggle";
 
+const PATH_LABELS: Record<string, string> = {
+  dashboard: "Início",
+  trabalhos: "Trabalhos",
+  analytics: "Desempenho",
+  billing: "Assinatura",
+  settings: "Configurações",
+  account: "Conta",
+  organization: "Organização",
+  organizations: "Organizações",
+  profile: "Perfil",
+  security: "Segurança",
+  people: "Pessoas",
+};
+
 export function DashboardHeader() {
   const pathname = usePathname();
 
@@ -20,13 +34,17 @@ export function DashboardHeader() {
 
   const breadcrumbs = useMemo(
     () =>
-      paths.map((path, index) => {
-        const href = `/${paths.slice(0, index + 1).join("/")}`;
-        const label = path.charAt(0).toUpperCase() + path.slice(1);
-        const isLast = index === paths.length - 1;
+      paths
+        .map((path, index) => {
+          const href = `/${paths.slice(0, index + 1).join("/")}`;
+          const label =
+            PATH_LABELS[path] ?? path.charAt(0).toUpperCase() + path.slice(1);
+          const isLast = index === paths.length - 1;
 
-        return { href, label, isLast };
-      }),
+          return { href, label, isLast };
+        })
+        // Users without an organization get a literal "null" slug.
+        .filter((_, index) => !(index === 0 && paths[0] === "null")),
     [paths]
   );
 

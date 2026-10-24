@@ -11,24 +11,24 @@ import {
   SidebarMenu,
   SidebarMenuItem,
 } from "@workspace/ui/components/sidebar";
-import { BarChart3, LayoutDashboard, ListTodo } from "lucide-react";
+import { BarChart3, ClipboardList, LayoutDashboard } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type * as React from "react";
 import { NavMain } from "@/components/nav-main";
 
 const navItems = [
   {
-    title: "Dashboard",
+    title: "Início",
     url: "",
     icon: LayoutDashboard,
   },
   {
-    title: "Tasks",
-    url: "tasks",
-    icon: ListTodo,
+    title: "Trabalhos",
+    url: "trabalhos",
+    icon: ClipboardList,
   },
   {
-    title: "Analytics",
+    title: "Desempenho",
     url: "analytics",
     icon: BarChart3,
   },

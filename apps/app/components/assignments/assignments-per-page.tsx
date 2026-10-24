@@ -7,14 +7,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@workspace/ui/components/select";
-import { useTasksContext } from "./context";
+import { useAssignmentsContext } from "./context";
 
-export function TasksPerPage() {
-  const { itemsPerPage, setItemsPerPage } = useTasksContext();
+export function AssignmentsPerPage() {
+  const { itemsPerPage, setItemsPerPage } = useAssignmentsContext();
 
   return (
     <div className="flex items-center space-x-2">
-      <span className="text-muted-foreground text-sm">Show</span>
+      <span className="text-muted-foreground text-sm">Mostrar</span>
       <Select
         onValueChange={(value) => setItemsPerPage(Number(value))}
         value={itemsPerPage.toString()}
@@ -28,7 +28,7 @@ export function TasksPerPage() {
           <SelectItem value="50">50</SelectItem>
         </SelectContent>
       </Select>
-      <span className="text-muted-foreground text-sm">per page</span>
+      <span className="text-muted-foreground text-sm">por página</span>
     </div>
   );
 }

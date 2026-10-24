@@ -117,17 +117,17 @@ function EditProfileForm({ onOpenChange, user }: EditProfileFormProps) {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Nome</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Enter your name"
+                    placeholder="Digite seu nome"
                     {...field}
                     disabled={isDemoAccount}
                   />
                 </FormControl>
                 {isDemoAccount && (
                   <p className="text-muted-foreground text-xs">
-                    You can&apos;t edit the demo account name
+                    Não é possível editar o nome da conta de demonstração
                   </p>
                 )}
                 <FormMessage />
@@ -139,7 +139,7 @@ function EditProfileForm({ onOpenChange, user }: EditProfileFormProps) {
             {isDemoAccount ? (
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Trash2 className="h-4 w-4" />
-                <span>You can&apos;t delete the demo account</span>
+                <span>Não é possível excluir a conta de demonstração</span>
               </div>
             ) : (
               <Button
@@ -149,7 +149,7 @@ function EditProfileForm({ onOpenChange, user }: EditProfileFormProps) {
                 variant="destructive"
               >
                 <Trash2 className="h-4 w-4" />
-                Delete Account
+                Excluir conta
               </Button>
             )}
 
@@ -159,13 +159,13 @@ function EditProfileForm({ onOpenChange, user }: EditProfileFormProps) {
                 type="button"
                 variant="outline"
               >
-                Cancel
+                Cancelar
               </Button>
               <Button
                 disabled={updateProfile.isPending || isDemoAccount}
                 type="submit"
               >
-                {updateProfile.isPending ? "Saving..." : "Save Changes"}
+                {updateProfile.isPending ? "Salvando..." : "Salvar alterações"}
               </Button>
             </div>
           </div>
@@ -175,20 +175,21 @@ function EditProfileForm({ onOpenChange, user }: EditProfileFormProps) {
       <AlertDialog onOpenChange={setShowDeleteConfirm} open={showDeleteConfirm}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogTitle>Tem certeza absoluta?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove all your data from our servers.
+              Essa ação não pode ser desfeita. Sua conta será excluída
+              permanentemente e todos os seus dados serão removidos dos nossos
+              servidores.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
             <AlertDialogAction
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
               disabled={deleteAccount.isPending}
               onClick={handleDeleteAccount}
             >
-              {deleteAccount.isPending ? "Deleting..." : "Delete Account"}
+              {deleteAccount.isPending ? "Excluindo..." : "Excluir conta"}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -206,11 +207,11 @@ export function EditProfileModal({
     <Dialog onOpenChange={onOpenChange} open={open}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit Profile</DialogTitle>
+          <DialogTitle>Editar perfil</DialogTitle>
           <DialogDescription>
             {user?.email === "demo@orion-kit.dev"
-              ? "Demo account - limited editing available."
-              : "Update your profile information or delete your account."}
+              ? "Conta de demonstração: edição limitada."
+              : "Atualize as informações do seu perfil ou exclua sua conta."}
           </DialogDescription>
         </DialogHeader>
         {user ? (

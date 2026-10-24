@@ -1,12 +1,11 @@
-import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const links = [
-  { label: "Platform", href: "#features" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "#docs" },
+  { label: "Como funciona", href: "#capabilities" },
+  { label: "Matérias", href: "#solutions" },
+  { label: "Preços", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export function Navbar() {
@@ -17,15 +16,9 @@ export function Navbar() {
           className="flex items-center gap-2.5 font-display font-semibold text-base tracking-tight"
           href="/"
         >
-          <span
-            aria-hidden="true"
-            className="relative grid size-8 place-items-center rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 shadow-[0_0_24px_rgba(59,130,246,0.5)]"
-          >
-            <Sparkles className="size-4 text-white" strokeWidth={2.5} />
-          </span>
-          NOVA
+          CATOLIFEITO
           <span className="ml-1 font-mono text-[10px] text-muted-foreground">
-            v2.0
+            beta
           </span>
         </Link>
 
@@ -44,11 +37,11 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link className="hidden sm:block" href="#login">
             <Button size="sm" variant="ghost">
-              Sign in
+              Entrar
             </Button>
           </Link>
           <Link href="#signup">
-            <Button size="sm">Get started</Button>
+            <Button size="sm">Começar grátis</Button>
           </Link>
         </div>
       </nav>
