@@ -1,4 +1,4 @@
-# Cracked Template
+# Cracked Template.
 
 An opinionated B2B SaaS monorepo built with Bun, Turborepo, Next.js, React, oRPC, Drizzle, and TanStack Query. The repo includes a product app, docs, mobile starter, marketing site variants, shared packages, and infrastructure wiring for auth, billing, analytics, jobs, and observability.
 
